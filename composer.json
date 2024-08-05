@@ -1,0 +1,21 @@
+{
+    "name": "intellectmoney/sdk-php",
+    "version": "1.0.0",
+    "type": "library",
+    "description": "IntellectMoney SDK PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "IntellectMoney\\SDK\\": "src/"
+        }
+    }, 
+    "authors": [
+        {
+            "name": "IntellectMoney",
+            "email": "ots@intellectmoney.ru"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "bearerToken": "YOUR_BEARER_TOKEN", 
+    "signSecretKey": "YOUR_SIGN_SECRET_KEY", 
+    "merchantUrl": "https://api.intellectmoney.ru/", 
+    "throwExceptionOnError": true
+}
