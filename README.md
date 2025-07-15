@@ -56,7 +56,7 @@ $authData = new AuthData("your_eshop_secret_key");
 $dataModel = new CreateInvoiceDataModel([
     "eshopId" => "465932",
     "orderId" => "fdsfdsfsd",
-    "recipientAmount" => new Money(10),
+    "recipientAmount" => new Money(10, Currency::TST),
     "email" => "e.mozgovoy+1@intellectmoney.ru"
 ]);
 ```

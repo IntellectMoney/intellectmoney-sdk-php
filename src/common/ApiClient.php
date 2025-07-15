@@ -56,7 +56,7 @@ abstract class ApiClient
     protected static function getSign(string $method, array $options, AuthData $authData): string
     {
         if (array_key_exists($method, static::$_signPatterns))
-            return static::_calculateHash(static::$_signPatterns[$method], $options, $authData);
+            return static::_calculateHash(static::$_signPatterns[$method], $options, $authData, false);
         throw new \OutOfRangeException('Invalid method: ' . $method);
     }
 
@@ -115,7 +115,7 @@ abstract class ApiClient
      * @return string
      * Возвращает хеш.
      */
-    private static function _calculateHash(string $pattern, array $options, AuthData $authData): string
+    private static function _calculateHash(string $pattern, array $options, AuthData $authData, bool $isMd5Hash = true): string
     {
         if (empty($pattern))
             throw new \InvalidArgumentException('Empty pattern');
@@ -141,7 +141,10 @@ abstract class ApiClient
                 break;
             }
         }
-        
-        return md5(implode('::', $pattern_parts));
+
+        if ($isMd5Hash)
+            return md5(implode('::', $pattern_parts));
+        else
+            return hash('sha256', implode('::', $pattern_parts));
     }
 }
